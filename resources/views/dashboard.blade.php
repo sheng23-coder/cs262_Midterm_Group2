@@ -124,6 +124,7 @@ Breakfast
 </label>
 
 <input
+type="file"
 name="breakfast_image"
 class="form-control mt-2">
 
