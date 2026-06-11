@@ -1,7 +1,7 @@
 @extends('layout.header1')
 @section('content')
 
-</div></div></section></div>
+
 
 @php
 $avgRating = $restaurant->reviews->count() > 0 ? round($restaurant->reviews->avg('rating')) : 0;
@@ -11,9 +11,18 @@ $avgRating = $restaurant->reviews->count() > 0 ? round($restaurant->reviews->avg
 <div class="container">
 
     @if($restaurant->image_path)
-    <div class="mb-4">
-        <img src="{{ asset('storage/' . $restaurant->image_path) }}" class="img-fluid rounded shadow" style="width:100%; max-height:400px; object-fit:cover;">
-    </div>
+    <div class="p-4 mb-4 rounded shadow" style="background:white;">
+    <img
+        src="{{ asset('storage/' . $restaurant->image_path) }}"
+        alt="{{ $restaurant->name }}"
+        class="img-fluid rounded shadow"
+        style="
+            width:100%;
+            max-height:600px;
+            object-fit:contain;
+            
+        ">
+</div>
     @endif
 
     <div class="p-4 mb-4 rounded shadow" style="background:white;">
@@ -21,6 +30,56 @@ $avgRating = $restaurant->reviews->count() > 0 ? round($restaurant->reviews->avg
         <p><strong>Cuisine:</strong> {{ $restaurant->cuisine_type }}</p>
         <p><strong>Address:</strong> {{ $restaurant->address }}</p>
         <p>{{ $restaurant->description }}</p>
+
+<hr>
+
+<h3 class="mb-4">Meal Gallery</h3>
+
+<div class="row">
+
+    @if($restaurant->breakfast_image)
+    <div class="col-md-4 mb-4">
+        <div class="card shadow">
+            <img src="{{ asset('storage/'.$restaurant->breakfast_image) }}"
+                 class="card-img-top"
+                 style="height:250px; object-fit:cover;">
+            <div class="card-body text-center">
+                <h5>Breakfast</h5>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    @if($restaurant->lunch_image)
+    <div class="col-md-4 mb-4">
+        <div class="card shadow">
+            <img src="{{ asset('storage/'.$restaurant->lunch_image) }}"
+                 class="card-img-top"
+                 style="height:250px; object-fit:cover;">
+            <div class="card-body text-center">
+                <h5>Lunch</h5>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    @if($restaurant->dinner_image)
+    <div class="col-md-4 mb-4">
+        <div class="card shadow">
+            <img src="{{ asset('storage/'.$restaurant->dinner_image) }}"
+                 class="card-img-top"
+                 style="height:250px; object-fit:cover;">
+            <div class="card-body text-center">
+                <h5>Dinner</h5>
+            </div>
+        </div>
+    </div>
+    @endif
+
+</div>
+
+<hr>
+
         <div>
             <strong>Overall Rating:</strong>
             @for($i = 1; $i <= 5; $i++)
@@ -91,11 +150,7 @@ $avgRating = $restaurant->reviews->count() > 0 ? round($restaurant->reviews->avg
 </div>
 </section>
 
-<footer class="footer_section">
-    <div class="container">
-        <p>&copy; <span id="displayYear"></span> All Rights Reserved By Delfood Team</p>
-    </div>
-</footer>
+
 
 <script>
 var starBtns = document.querySelectorAll('.star-btn');

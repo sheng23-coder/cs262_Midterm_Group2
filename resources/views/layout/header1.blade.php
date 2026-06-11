@@ -85,6 +85,10 @@
               <a class="nav-item nav-link {{ request()->is('chinese') ? 'active' : '' }}" href="/chinese">Chinese</a>
               <a class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}" href="/contact">Contact US</a>
             </nav>
+
+
+
+            
           </div>
           <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
           <script src="{{ asset('js/bootstrap.js') }}"></script>

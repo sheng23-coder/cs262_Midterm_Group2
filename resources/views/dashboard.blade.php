@@ -113,6 +113,50 @@ name="image"
 class="form-control mt-2">
 
 </div>
+<h4 style="text-align:center; font-weight:bold; font-family:Times New Roman;">Meal Type</h4>
+{{-- //Type of food --}}
+<div class="mb-4">
+
+<label class="fw-bold">
+
+Breakfast
+
+</label>
+
+<input
+name="breakfast_image"
+class="form-control mt-2">
+
+</div>
+<div class="mb-4">
+
+<label class="fw-bold">
+
+Lunch
+
+</label>
+
+<input
+type="file"
+name="lunch_image"
+class="form-control mt-2">
+
+</div>
+<div class="mb-4">
+
+<label class="fw-bold">
+
+Dinner
+
+</label>
+
+<input
+type="file"
+name="dinner_image"
+class="form-control mt-2">
+
+</div>
+{{-- End of type of food --}}
 
 <button
 type="submit"
@@ -147,14 +191,14 @@ My Restaurants
 
 <div class="card shadow-lg border-0 h-100">
 
-@if($r->image_path)
+
 
 <img
-src="{{ asset('storage/' . $r->image_path) }}"
+src="{{ $r->image_path ? asset('storage/'.$r->image_path) : asset('images/r1.jpg') }}"
 class="card-img-top"
 style="height:230px; object-fit:cover;">
 
-@endif
+
 
 <div class="card-body">
 

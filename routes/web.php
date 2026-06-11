@@ -13,10 +13,14 @@ Route::get('/khmer', function () { return view('Khmer', ['restaurants' => Restau
 Route::get('/korean', function () { return view('Korean', ['restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Korean')->get()]); });
 Route::get('/japanese', function () { return view('Japanese', ['restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Japanese')->get()]); });
 Route::get('/chinese', function () { return view('Chinese', ['restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Chinese')->get()]); });
+Route::get('/cuisine', function () { return view('allrestaurant', ['restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Other')->get()]); });
 Route::get('/allrestaurant', function () { return view('allrestaurant', ['restaurants' => Restaurant::with('reviews')->latest()->get()]); });
+
 Route::get('/contact', function () { return view('contact'); });
 Route::get('/login', function () { return view('login'); })->name('login');
 Route::get('/signup', function () { return view('signup'); });
+
+
 Route::get('/kravanh', function () { return view('kravanh'); });
 Route::get('/pbp', function () { return view('pbp'); });
 Route::get('/allrestaurant', [RestaurantController::class, 'allRestaurant']);
@@ -34,6 +38,7 @@ Route::get('/dashboard', function () {
 });
 
 Route::post('/create-restaurant', [RestaurantController::class, 'createRestaurant']);
+
 Route::get('/restaurant/{restaurant}', [RestaurantController::class, 'showRestaurant']);
 Route::get('/edit-restaurant/{restaurant}', [RestaurantController::class, 'showEditScreen']);
 Route::put('/edit-restaurant/{restaurant}', [RestaurantController::class, 'updateRestaurant']);

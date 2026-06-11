@@ -9,60 +9,42 @@
         
      </div>
     </div>
-
+  <br>
     <div class="slider_container">
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k1.jpg" alt="" />
-          </div>
+
+@foreach($restaurants as $restaurant)
+
+    @if($restaurant->breakfast_image)
+    <div class="item">
+        <div class="img-box">
+          
+            <img src="{{ asset('storage/'.$restaurant->breakfast_image) }}"
+                 style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/ko1.avif" alt="" />
-          </div>
+    </div>
+    @endif
+
+    @if($restaurant->lunch_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->lunch_image) }}"
+                 style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c1.avif" alt="" />
-          </div>
+    </div>
+    @endif
+
+    @if($restaurant->dinner_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->dinner_image) }}"
+                 style="width:100%; height:100%; object-fit:cover;">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/j1.jpg" alt="" />
-          </div>
-        </div>
-        <<div class="item">
-          <div class="img-box">
-            <img src="pic/k2.jpg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/ko2.webp" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c2.jpg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/j3.jpg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k3.jpg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/ko3.webp" alt="" />
-          </div>
-        </div>
-       
-      </div>
+    </div>
+    @endif
+
+@endforeach
+
+</div>
     </section>
     <!-- end slider section -->
   </div>

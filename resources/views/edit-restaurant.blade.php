@@ -41,6 +41,38 @@
                         <p class="fw-bold">Upload New Image (optional):</p>
                         <input type="file" name="image" class="form-control">
                     </div>
+                    @if($restaurant->breakfast_image)
+                    <div class="my-3">
+                        <p class="fw-bold">Current Breakfast Image:</p>
+                        <img src="{{ asset('storage/' . $restaurant->breakfast_image) }}" style="max-width:200px; border-radius:8px;">
+                    </div>
+                    @endif
+                    <div class="my-3">
+                        <p class="fw-bold">Upload New Breakfast Image (optional):</p>
+                        <input type="file" name="breakfast_image" class="form-control">
+                    </div>
+                    @if($restaurant->lunch_image)
+                    <div class="my-3">
+                        <p class="fw-bold">Current Lunch Image:</p>
+                        <img src="{{ asset('storage/' . $restaurant->lunch_image) }}" style="max-width:200px; border-radius:8px;">
+                    </div>
+                    @endif
+                    <div class="my-3">
+                        <p class="fw-bold">Upload New Lunch Image (optional):</p>   
+                        <input type="file" name="lunch_image" class="form-control">
+                    </div>
+                    @if($restaurant->dinner_image)
+                    <div class="my-3">
+                        <p class="fw-bold">Current Dinner Image:</p>
+                        <img src="{{ asset('storage/' . $restaurant->dinner_image) }}" style="max-width:200px; border-radius:8px;">
+                    </div>
+                    @endif
+                    <div class="my-3">
+                        <p class="fw-bold">Upload New Dinner Image (optional):</p>
+                        <input type="file" name="dinner_image" class="form-control">
+                    </div>
+                                
+                        
                     <button class="btn btn-primary btn-lg px-4">Save Changes</button>
                     <a href="/dashboard" class="btn btn-secondary btn-lg px-4 ms-2">Cancel</a>
                 </form>

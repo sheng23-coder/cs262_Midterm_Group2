@@ -11,47 +11,40 @@
     </div>
 
     <div class="slider_container">
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k1.jpg" alt="" />
-          </div>
+
+@foreach($restaurants as $restaurant)
+
+@if($restaurant->cuisine_type == 'Khmer')
+
+    @if($restaurant->breakfast_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->breakfast_image) }}">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k2.jpg" alt="" />
-          </div>
+    </div>
+    @endif
+
+    @if($restaurant->lunch_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->lunch_image) }}">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k3.jpg" alt="" />
-          </div>
+    </div>
+    @endif
+
+    @if($restaurant->dinner_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->dinner_image) }}">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k4.webp" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k5.webp" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k6.jpg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k7.jpg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/k8.jpg" alt="" />
-          </div>
-        </div>
-      </div>
+    </div>
+    @endif
+
+@endif
+
+@endforeach
+
+</div>
     </section>
     <!-- end slider section -->
   </div>
@@ -249,7 +242,9 @@
                       <a href="/edit-restaurant/{{ $r->id }}" class="btn btn-warning">Edit</a>
                   @endif
               @endauth
-          <a href="/restaurant/{{ $r->id }}" class="btn btn-success">View More</a>
+          <a href="/restaurant/{{ $r->id }}" class="btn btn-success">
+    View More
+</a>
 
 
         </div>

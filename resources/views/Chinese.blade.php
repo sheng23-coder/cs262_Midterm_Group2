@@ -9,48 +9,41 @@
     </div>  
   </div>       
         
-    <div class="slider_container">
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c1.avif" alt="" />
-          </div>
+   <div class="slider_container">
+
+@foreach($restaurants as $restaurant)
+
+@if($restaurant->cuisine_type == 'Chinese')
+
+    @if($restaurant->breakfast_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->breakfast_image) }}">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c2.jpg" alt="" />
-          </div>
+    </div>
+    @endif
+
+    @if($restaurant->lunch_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->lunch_image) }}">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c3.jpeg" alt="" />
-          </div>
+    </div>
+    @endif
+
+    @if($restaurant->dinner_image)
+    <div class="item">
+        <div class="img-box">
+            <img src="{{ asset('storage/'.$restaurant->dinner_image) }}">
         </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c4.jpeg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c5.avif" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c6.jpeg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c7.jpg" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="pic/c8.webp" alt="" />
-          </div>
-        </div>
-      </div>
+    </div>
+    @endif
+
+@endif
+
+@endforeach
+
+</div>
     </section>
    
   </div>
@@ -254,7 +247,9 @@ Premium hot pot experience
     @endif
 @endauth
 
-          <a href="/restaurant/{{ $r->id }}" class="btn btn-success">View More</a>
+      <a href="/restaurant/{{ $r->id }}" class="btn btn-success">
+    View More
+</a>
 
 
         </div>
