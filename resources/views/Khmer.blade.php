@@ -244,6 +244,8 @@
     <small style="color:#666;">({{ $r->reviews->count() }} reviews)</small>
 </div>
             </p>
+            <a href="/edit-restaurant/{{ $r->id }}"
+              class="btn btn-warning"> Edit </a>
 
           <a href="/restaurant/{{ $r->id }}" class="btn btn-success">View More</a>
 
