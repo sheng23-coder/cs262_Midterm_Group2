@@ -33,7 +33,7 @@ $avgRating = $restaurant->reviews->count() > 0 ? round($restaurant->reviews->avg
 
 <hr>
 
-<h3 class="mb-4">Meal Gallery</h3>
+<h3 class="mb-4" style="text-align:center; font-weight:bold; font-family:Times New Roman;">Meal Gallery</h3>
 
 <div class="row">
 
